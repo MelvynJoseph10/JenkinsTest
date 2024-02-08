@@ -15,10 +15,10 @@ pipeline {
                 withAWS(region:'us-east-1',credentials:'Jenkins-cred') { 
                 sh 'echo "Uploading content with AWS creds"'
                     s3Upload(
+                        bucket: 'maans3jen',
                         pathStyleAccessEnabled: true, 
                         payloadSigningEnabled: true, 
-                        file: ['index.html', 'education.html', 'hobbies.html', 'projects.html', 'samplestyle.css'],
-    bucket:'maans3jen')
+                        file: ['index.html', 'education.html', 'hobbies.html', 'projects.html', 'samplestyle.css'])
                 }
             }
         }
